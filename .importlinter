@@ -1,0 +1,22 @@
+[importlinter]
+root_package = src
+
+[importlinter:contract:1]
+name = Layered Architecture Contract
+type = layers
+layers =
+    src.api
+    src.services
+    src.repositories
+    src.domain
+
+[importlinter:contract:2]
+name = Domain Isolation Contract
+type = forbidden
+source_modules =
+    src.domain
+forbidden_modules =
+    src.api
+    src.services
+    src.repositories
+    src.db

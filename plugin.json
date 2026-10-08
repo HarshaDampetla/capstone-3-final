@@ -1,0 +1,45 @@
+{
+  "name": "marketscope-substrate-plugin",
+  "version": "1.0.0",
+  "description": "MarketScope AI-Native Substrate Plugin packaging custom agents, skills, commands, hooks, and Playwright MCP integration.",
+  "author": "AI-Native Engineer",
+  "agents": [
+    ".claude/agents/order-lifecycle-agent.md",
+    ".claude/agents/portfolio-stats-agent.md",
+    ".claude/agents/security-reviewer-agent.md",
+    ".claude/agents/architecture-test-agent.md",
+    ".claude/agents/user-management-agent.md",
+    ".claude/agents/crud-scaffolder-agent.md",
+    ".claude/agents/watchlist-validator-agent.md",
+    ".claude/agents/ac-test-generator-agent.md",
+    ".claude/agents/financial-rules-agent.md",
+    ".claude/agents/documentation-agent.md"
+  ],
+  "skills": [
+    ".claude/skills/order-lifecycle-validator/SKILL.md",
+    ".claude/skills/portfolio-pnl-calculator/SKILL.md",
+    ".claude/skills/watchlist-validator/SKILL.md",
+    ".claude/skills/architecture-test-author/SKILL.md",
+    ".claude/skills/financial-decimal-reviewer/SKILL.md",
+    ".claude/skills/rbac-reviewer/SKILL.md",
+    ".claude/skills/ac-test-generator/SKILL.md"
+  ],
+  "commands": [
+    ".claude/commands/validate-ac.md",
+    ".claude/commands/security-check.md",
+    ".claude/commands/run-architecture-tests.md",
+    ".claude/commands/validate-financial-rules.md"
+  ],
+  "hooks": [
+    ".claude/hooks/password-hash-check.sh",
+    ".claude/hooks/role-boundary-check.sh",
+    ".claude/hooks/executed-order-immutability-check.sh",
+    ".claude/hooks/decimal-financial-check.sh"
+  ],
+  "mcpServers": {
+    "playwright": {
+      "command": "npx",
+      "args": ["-y", "@playwright/mcp-server"]
+    }
+  }
+}

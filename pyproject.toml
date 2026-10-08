@@ -1,0 +1,64 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "marketscope"
+version = "0.1.0"
+description = "MarketScope — Stock Trading & Portfolio Analytics Platform (BC-AINE-006)"
+authors = [{ name = "AI-Native Engineer", email = "engineer@marketscope.local" }]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.110.0",
+    "uvicorn[standard]>=0.28.0",
+    "sqlalchemy>=2.0.28",
+    "alembic>=1.13.1",
+    "pydantic>=2.6.4",
+    "pydantic-settings>=2.2.1",
+    "passlib[bcrypt]>=1.7.4",
+    "python-jose[cryptography]>=3.3.0",
+    "python-multipart>=0.0.9",
+    "email-validator>=2.1.0",
+    "httpx>=0.27.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.1.1",
+    "pytest-cov>=4.1.0",
+    "pytest-asyncio>=0.23.5",
+    "import-linter>=2.0",
+    "black>=24.3.0",
+    "ruff>=0.3.4",
+    "mypy>=1.9.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_functions = ["test_*"]
+addopts = "-v --cov=src --cov-report=term-missing --cov-report=xml:coverage.xml"
+markers = [
+    "ac(id): Acceptance Criteria identifier tag (e.g. AC-01)",
+    "unit: Unit tests",
+    "architecture: Structural architecture tests",
+    "integration: Integration and API tests",
+    "ui: Playwright UI tests",
+]
+
+[tool.coverage.run]
+source = ["src"]
+omit = ["tests/*", "alembic/*"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+]
+
+[tool.importlinter]
+root_package = "src"

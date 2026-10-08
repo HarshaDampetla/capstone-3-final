@@ -1,0 +1,19 @@
+{
+  "timestamp": "2026-10-05T19:16:04.226577+00:00",
+  "category_scores": {
+    "Substrate": {
+      "category": "Substrate",
+      "max_marks": 40,
+      "score": 40,
+      "details": "Found 14/14 required substrate artifacts."
+    },
+    "Architecture": {
+      "category": "Architectural Discipline",
+      "max_marks": 8,
+      "score": 8,
+      "details": "Arch tests present: True, Import Linter config present: True"
+    }
+  },
+  "total_score": 48,
+  "status": "PASSED"
+}
